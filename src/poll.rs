@@ -476,7 +476,7 @@ mod notify {
                 io::Result::Ok((read_pipe, write_pipe))
             };
 
-            #[cfg(not(any((target_os = "haiku", target_os = "nto")))]
+            #[cfg(not(any(target_os = "haiku", target_os = "nto")))]
             let (read_pipe, write_pipe) = pipe_with(PipeFlags::CLOEXEC).or_else(fallback_pipe)?;
 
             #[cfg(any(target_os = "haiku", target_os = "nto"))]
